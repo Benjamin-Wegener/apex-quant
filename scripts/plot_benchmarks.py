@@ -299,7 +299,7 @@ def plot_radar_chart(models, output_dir):
     radar_names = [
         "APEX I-Quality (21.3 GB)", "APEX I-Balanced (23.6 GB)",
         "APEX I-Compact (16.1 GB)", "APEX Mini (12.2 GB)",
-        "Unsloth Q8_K_XL (45.3 GB)", "Unsloth Q4_K_L (18.8 GB)",
+        "Unsloth UD-Q4_K_XL (20.7 GB)", "Unsloth Q8_K_XL (45.3 GB)",
         "Q8_0 (34.4 GB)",
     ]
     radar_models = [m for m in models if m["display_name"] in radar_names]
@@ -365,8 +365,8 @@ def plot_radar_chart(models, output_dir):
         "APEX I-Balanced (23.6 GB)":    "#388E3C",
         "APEX I-Compact (16.1 GB)":     "#66BB6A",
         "APEX Mini (12.2 GB)":          "#81C784",
+        "Unsloth UD-Q4_K_XL (20.7 GB)":"#E65100",
         "Unsloth Q8_K_XL (45.3 GB)":   "#F57C00",
-        "Unsloth Q4_K_L (18.8 GB)":    "#FF9800",
         "Q8_0 (34.4 GB)":              "#D32F2F",
     }
     radar_linestyles = {
@@ -374,8 +374,8 @@ def plot_radar_chart(models, output_dir):
         "APEX I-Balanced (23.6 GB)":    "--",
         "APEX I-Compact (16.1 GB)":     "-.",
         "APEX Mini (12.2 GB)":          ":",
+        "Unsloth UD-Q4_K_XL (20.7 GB)":"-.",
         "Unsloth Q8_K_XL (45.3 GB)":   "-",
-        "Unsloth Q4_K_L (18.8 GB)":    ":",
         "Q8_0 (34.4 GB)":              "--",
     }
 
@@ -417,7 +417,8 @@ def plot_accuracy_comparison(models, output_dir):
         "F16 (64.6 GB)", "Q8_0 (34.4 GB)",
         "APEX I-Quality (21.3 GB)", "APEX I-Balanced (23.6 GB)",
         "APEX I-Compact (16.1 GB)", "APEX Mini (12.2 GB)",
-        "Unsloth Q8_K_XL (45.3 GB)", "Unsloth Q4_K_L (18.8 GB)",
+        "Unsloth UD-Q4_K_XL (20.7 GB)", "Unsloth Q8_K_XL (45.3 GB)",
+        "Unsloth Q4_K_L (18.8 GB)", "Q5_K_S (23.1 GB)",
         "bartowski IQ2_M (11.3 GB)", "bartowski Q3_K_M (15.1 GB)",
     ]
     ordered = []
@@ -518,7 +519,8 @@ def plot_kl_comparison(models, output_dir):
         "Q8_0 (34.4 GB)",
         "APEX I-Quality (21.3 GB)", "APEX I-Balanced (23.6 GB)",
         "APEX I-Compact (16.1 GB)", "APEX Mini (12.2 GB)",
-        "Unsloth Q4_K_L (18.8 GB)",
+        "Unsloth UD-Q4_K_XL (20.7 GB)", "Unsloth Q8_K_XL (45.3 GB)",
+        "Unsloth Q4_K_L (18.8 GB)", "Q5_K_S (23.1 GB)",
         "bartowski IQ2_M (11.3 GB)", "bartowski Q3_K_M (15.1 GB)",
     ]
     ordered = []
