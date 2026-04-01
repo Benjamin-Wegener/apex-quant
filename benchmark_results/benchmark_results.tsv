@@ -1,0 +1,3 @@
+model	size_gb	perplexity	ppl_error	kl_mean	kl_max	pp512_ts	tg128_ts
+Qwen3.5-35B-A3B-APEX-Quality	21.3	6.5266	0.04143	0.011433	5.854251	2004.14	62.15
+Qwen3.5-35B-A3B-APEX-Balanced	23.6	6.5334	0.04153	0.008751	6.032536	1931.59	61.24

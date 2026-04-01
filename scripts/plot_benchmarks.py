@@ -46,7 +46,7 @@ DISPLAY_NAMES = {
     "Qwen_Qwen3.5-35B-A3B-IQ2_M":          "bartowski IQ2_M (11.3 GB)",
     "Qwen_Qwen3.5-35B-A3B-Q3_K_M":         "bartowski Q3_K_M (15.1 GB)",
     "Qwen3.5-35B-A3B-UD-Q4_K_XL":          "Unsloth UD-Q4_K_XL (20.7 GB)",
-    "Qwen3.5-35B-A3B-Q5_K_S":              "Q5_K_S (23.1 GB)",
+    "Qwen3.5-35B-A3B-Q5_K_S":              "Unsloth Q5_K_S (23.1 GB)",
 }
 
 # Models to include in plots -- skip any model key not listed here
@@ -418,7 +418,7 @@ def plot_accuracy_comparison(models, output_dir):
         "APEX I-Quality (21.3 GB)", "APEX I-Balanced (23.6 GB)",
         "APEX I-Compact (16.1 GB)", "APEX Mini (12.2 GB)",
         "Unsloth UD-Q4_K_XL (20.7 GB)", "Unsloth Q8_K_XL (45.3 GB)",
-        "Unsloth Q4_K_L (18.8 GB)", "Q5_K_S (23.1 GB)",
+        "Unsloth Q4_K_L (18.8 GB)", "Unsloth Q5_K_S (23.1 GB)",
         "bartowski IQ2_M (11.3 GB)", "bartowski Q3_K_M (15.1 GB)",
     ]
     ordered = []
@@ -520,7 +520,7 @@ def plot_kl_comparison(models, output_dir):
         "APEX I-Quality (21.3 GB)", "APEX I-Balanced (23.6 GB)",
         "APEX I-Compact (16.1 GB)", "APEX Mini (12.2 GB)",
         "Unsloth UD-Q4_K_XL (20.7 GB)", "Unsloth Q8_K_XL (45.3 GB)",
-        "Unsloth Q4_K_L (18.8 GB)", "Q5_K_S (23.1 GB)",
+        "Unsloth Q4_K_L (18.8 GB)", "Unsloth Q5_K_S (23.1 GB)",
         "bartowski IQ2_M (11.3 GB)", "bartowski Q3_K_M (15.1 GB)",
     ]
     ordered = []
@@ -666,7 +666,7 @@ def plot_kl_apex_vs_unsloth(models, output_dir):
         "Unsloth UD-Q4_K_XL (20.7 GB)",
         "Unsloth Q8_K_XL (45.3 GB)",
         "Unsloth Q4_K_L (18.8 GB)",
-        "Q5_K_S (23.1 GB)",
+        "Unsloth Q5_K_S (23.1 GB)",
         "Q8_0 (34.4 GB)",
     ]
 
@@ -679,7 +679,7 @@ def plot_kl_apex_vs_unsloth(models, output_dir):
         "Unsloth UD-Q4_K_XL (20.7 GB)":"#F57C00",
         "Unsloth Q8_K_XL (45.3 GB)":   "#F57C00",
         "Unsloth Q4_K_L (18.8 GB)":    "#F57C00",
-        "Q5_K_S (23.1 GB)":            "#D32F2F",
+        "Unsloth Q5_K_S (23.1 GB)":            "#D32F2F",
         "Q8_0 (34.4 GB)":              "#D32F2F",
     }
 
