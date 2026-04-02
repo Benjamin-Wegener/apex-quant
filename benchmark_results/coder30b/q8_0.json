@@ -1,0 +1,17 @@
+{
+  "model": "Qwen3-Coder-30B-Q8_0",
+  "size_gb": 30.3,
+  "perplexity": 9.5368,
+  "ppl_error": 0.07558,
+  "kl_mean": 0.003060,
+  "kl_max": 2.564147,
+  "kl_99_9": 0.122214,
+  "kl_median": 0.001163,
+  "hellaswag": 75.75000000,
+  "winogrande": 68.0000,
+  "mmlu": 39.5995,
+  "arc_challenge": 45.8194,
+  "truthfulqa": 29.9878,
+  "pp512_ts": 1873.79,
+  "tg128_ts": 57.12
+}

@@ -1,0 +1,17 @@
+{
+  "model": "Qwen3-Coder-30B-UD-Q4_K_XL",
+  "size_gb": 16.5,
+  "perplexity": 9.6762,
+  "ppl_error": 0.07697,
+  "kl_mean": 0.024586,
+  "kl_max": 21.369713,
+  "kl_99_9": 0.789194,
+  "kl_median": 0.009286,
+  "hellaswag": 76.25000000,
+  "winogrande": 67.0000,
+  "mmlu": 39.6641,
+  "arc_challenge": 47.4916,
+  "truthfulqa": 30.4774,
+  "pp512_ts": 2133.04,
+  "tg128_ts": 82.31
+}

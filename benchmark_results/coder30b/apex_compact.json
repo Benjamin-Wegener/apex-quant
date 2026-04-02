@@ -1,0 +1,17 @@
+{
+  "model": "Qwen3-Coder-30B-APEX-Compact",
+  "size_gb": 13.8,
+  "perplexity": 9.7647,
+  "ppl_error": 0.07730,
+  "kl_mean": 0.049208,
+  "kl_max": 20.471811,
+  "kl_99_9": 1.529684,
+  "kl_median": 0.018841,
+  "hellaswag": 75.00000000,
+  "winogrande": 67.0000,
+  "mmlu": 39.0827,
+  "arc_challenge": 45.8194,
+  "truthfulqa": 30.3550,
+  "pp512_ts": 1962.99,
+  "tg128_ts": 83.79
+}
