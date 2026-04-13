@@ -1,0 +1,482 @@
+# ============================================================
+# APEX Mixed-Precision Config: Gemma4-19B-A4B (gemma-4-19b-a4b-it)
+# Adapted from mudler/apex-quant gemma4_26b_mini.txt
+# Target: ~10-11 GB, funktionsfähig
+#
+# Wichtigste Anpassungen gegenüber 26B-Config:
+#   - ffn_gate_exps + ffn_up_exps → ffn_gate_up_exps (FUSED in 19B!)
+#   - ffn_gate_shexp/ffn_up_shexp → ffn_gate/ffn_up (shared expert naming in 19B)
+#   - attn_gate, attn_qkv, ssm_* ENTFERNT (kein Mamba/SSM in 19B)
+#   - ffn_gate_inp explizit auf Q8_0 (MoE-Router schützen)
+#   - Kein iq2_s (kleinere Expert-Dims in 19B, Q3_K sicherer)
+#
+# Verwendung:
+#   llama-quantize --tensor-type gemma4_19b_mini.txt model_f16.gguf output.gguf Q3_K_M
+#
+# HINWEIS zu Tensor-Namen:
+#   Falls "ffn_gate" / "ffn_up" / "ffn_down" als getrennte Shared-Expert-Tensoren
+#   nicht existieren (weil 19B nur ffn_gate_up_exps + ffn_down_exps kennt),
+#   werden diese Einträge ignoriert – kein Fehler.
+# ============================================================
+
+# ==== LAYER 0 ====
+blk.0.ffn_gate_inp=Q8_0
+blk.0.ffn_gate_up_exps=Q3_K
+blk.0.ffn_down_exps=Q3_K
+blk.0.ffn_gate=Q5_K
+blk.0.ffn_up=Q5_K
+blk.0.ffn_down=Q5_K
+blk.0.ffn_gate_shexp=Q5_K
+blk.0.ffn_up_shexp=Q5_K
+blk.0.ffn_down_shexp=Q5_K
+blk.0.attn_q=Q4_K
+blk.0.attn_k=Q4_K
+blk.0.attn_v=Q4_K
+blk.0.attn_output=Q4_K
+
+# ==== LAYER 1 ====
+blk.1.ffn_gate_inp=Q8_0
+blk.1.ffn_gate_up_exps=Q3_K
+blk.1.ffn_down_exps=Q3_K
+blk.1.ffn_gate=Q5_K
+blk.1.ffn_up=Q5_K
+blk.1.ffn_down=Q5_K
+blk.1.ffn_gate_shexp=Q5_K
+blk.1.ffn_up_shexp=Q5_K
+blk.1.ffn_down_shexp=Q5_K
+blk.1.attn_q=Q4_K
+blk.1.attn_k=Q4_K
+blk.1.attn_v=Q4_K
+blk.1.attn_output=Q4_K
+
+# ==== LAYER 2 ====
+blk.2.ffn_gate_inp=Q8_0
+blk.2.ffn_gate_up_exps=Q3_K
+blk.2.ffn_down_exps=Q3_K
+blk.2.ffn_gate=Q5_K
+blk.2.ffn_up=Q5_K
+blk.2.ffn_down=Q5_K
+blk.2.ffn_gate_shexp=Q5_K
+blk.2.ffn_up_shexp=Q5_K
+blk.2.ffn_down_shexp=Q5_K
+blk.2.attn_q=Q4_K
+blk.2.attn_k=Q4_K
+blk.2.attn_v=Q4_K
+blk.2.attn_output=Q4_K
+
+# ==== LAYER 3 ====
+blk.3.ffn_gate_inp=Q8_0
+blk.3.ffn_gate_up_exps=Q3_K
+blk.3.ffn_down_exps=Q3_K
+blk.3.ffn_gate=Q4_K
+blk.3.ffn_up=Q4_K
+blk.3.ffn_down=Q4_K
+blk.3.ffn_gate_shexp=Q4_K
+blk.3.ffn_up_shexp=Q4_K
+blk.3.ffn_down_shexp=Q4_K
+blk.3.attn_q=Q3_K
+blk.3.attn_k=Q3_K
+blk.3.attn_v=Q3_K
+blk.3.attn_output=Q3_K
+
+# ==== LAYER 4 ====
+blk.4.ffn_gate_inp=Q8_0
+blk.4.ffn_gate_up_exps=Q3_K
+blk.4.ffn_down_exps=Q3_K
+blk.4.ffn_gate=Q4_K
+blk.4.ffn_up=Q4_K
+blk.4.ffn_down=Q4_K
+blk.4.ffn_gate_shexp=Q4_K
+blk.4.ffn_up_shexp=Q4_K
+blk.4.ffn_down_shexp=Q4_K
+blk.4.attn_q=Q3_K
+blk.4.attn_k=Q3_K
+blk.4.attn_v=Q3_K
+blk.4.attn_output=Q3_K
+
+# ==== LAYER 5 ====
+blk.5.ffn_gate_inp=Q8_0
+blk.5.ffn_gate_up_exps=Q3_K
+blk.5.ffn_down_exps=Q3_K
+blk.5.ffn_gate=Q4_K
+blk.5.ffn_up=Q4_K
+blk.5.ffn_down=Q4_K
+blk.5.ffn_gate_shexp=Q4_K
+blk.5.ffn_up_shexp=Q4_K
+blk.5.ffn_down_shexp=Q4_K
+blk.5.attn_q=Q3_K
+blk.5.attn_k=Q3_K
+blk.5.attn_v=Q3_K
+blk.5.attn_output=Q3_K
+
+# ==== LAYER 6 ====
+blk.6.ffn_gate_inp=Q8_0
+blk.6.ffn_gate_up_exps=Q3_K
+blk.6.ffn_down_exps=Q3_K
+blk.6.ffn_gate=Q4_K
+blk.6.ffn_up=Q4_K
+blk.6.ffn_down=Q4_K
+blk.6.ffn_gate_shexp=Q4_K
+blk.6.ffn_up_shexp=Q4_K
+blk.6.ffn_down_shexp=Q4_K
+blk.6.attn_q=Q3_K
+blk.6.attn_k=Q3_K
+blk.6.attn_v=Q3_K
+blk.6.attn_output=Q3_K
+
+# ==== LAYER 7 ====
+blk.7.ffn_gate_inp=Q8_0
+blk.7.ffn_gate_up_exps=Q3_K
+blk.7.ffn_down_exps=Q3_K
+blk.7.ffn_gate=Q4_K
+blk.7.ffn_up=Q4_K
+blk.7.ffn_down=Q4_K
+blk.7.ffn_gate_shexp=Q4_K
+blk.7.ffn_up_shexp=Q4_K
+blk.7.ffn_down_shexp=Q4_K
+blk.7.attn_q=Q3_K
+blk.7.attn_k=Q3_K
+blk.7.attn_v=Q3_K
+blk.7.attn_output=Q3_K
+
+# ==== LAYER 8 ====
+blk.8.ffn_gate_inp=Q8_0
+blk.8.ffn_gate_up_exps=Q3_K
+blk.8.ffn_down_exps=Q3_K
+blk.8.ffn_gate=Q4_K
+blk.8.ffn_up=Q4_K
+blk.8.ffn_down=Q4_K
+blk.8.ffn_gate_shexp=Q4_K
+blk.8.ffn_up_shexp=Q4_K
+blk.8.ffn_down_shexp=Q4_K
+blk.8.attn_q=Q3_K
+blk.8.attn_k=Q3_K
+blk.8.attn_v=Q3_K
+blk.8.attn_output=Q3_K
+
+# ==== LAYER 9 ====
+blk.9.ffn_gate_inp=Q8_0
+blk.9.ffn_gate_up_exps=Q3_K
+blk.9.ffn_down_exps=Q3_K
+blk.9.ffn_gate=Q4_K
+blk.9.ffn_up=Q4_K
+blk.9.ffn_down=Q4_K
+blk.9.ffn_gate_shexp=Q4_K
+blk.9.ffn_up_shexp=Q4_K
+blk.9.ffn_down_shexp=Q4_K
+blk.9.attn_q=Q3_K
+blk.9.attn_k=Q3_K
+blk.9.attn_v=Q3_K
+blk.9.attn_output=Q3_K
+
+# ==== LAYER 10 ====
+# (26B nutzt hier iq2_s – für 19B bleiben wir bei Q3_K wegen kleinerer Expert-Dims)
+blk.10.ffn_gate_inp=Q8_0
+blk.10.ffn_gate_up_exps=Q3_K
+blk.10.ffn_down_exps=Q3_K
+blk.10.ffn_gate=Q4_K
+blk.10.ffn_up=Q4_K
+blk.10.ffn_down=Q4_K
+blk.10.ffn_gate_shexp=Q4_K
+blk.10.ffn_up_shexp=Q4_K
+blk.10.ffn_down_shexp=Q4_K
+blk.10.attn_q=Q3_K
+blk.10.attn_k=Q3_K
+blk.10.attn_v=Q3_K
+blk.10.attn_output=Q3_K
+
+# ==== LAYER 11 ====
+blk.11.ffn_gate_inp=Q8_0
+blk.11.ffn_gate_up_exps=Q3_K
+blk.11.ffn_down_exps=Q3_K
+blk.11.ffn_gate=Q4_K
+blk.11.ffn_up=Q4_K
+blk.11.ffn_down=Q4_K
+blk.11.ffn_gate_shexp=Q4_K
+blk.11.ffn_up_shexp=Q4_K
+blk.11.ffn_down_shexp=Q4_K
+blk.11.attn_q=Q3_K
+blk.11.attn_k=Q3_K
+blk.11.attn_v=Q3_K
+blk.11.attn_output=Q3_K
+
+# ==== LAYER 12 ====
+blk.12.ffn_gate_inp=Q8_0
+blk.12.ffn_gate_up_exps=Q3_K
+blk.12.ffn_down_exps=Q3_K
+blk.12.ffn_gate=Q4_K
+blk.12.ffn_up=Q4_K
+blk.12.ffn_down=Q4_K
+blk.12.ffn_gate_shexp=Q4_K
+blk.12.ffn_up_shexp=Q4_K
+blk.12.ffn_down_shexp=Q4_K
+blk.12.attn_q=Q3_K
+blk.12.attn_k=Q3_K
+blk.12.attn_v=Q3_K
+blk.12.attn_output=Q3_K
+
+# ==== LAYER 13 ====
+blk.13.ffn_gate_inp=Q8_0
+blk.13.ffn_gate_up_exps=Q3_K
+blk.13.ffn_down_exps=Q3_K
+blk.13.ffn_gate=Q4_K
+blk.13.ffn_up=Q4_K
+blk.13.ffn_down=Q4_K
+blk.13.ffn_gate_shexp=Q4_K
+blk.13.ffn_up_shexp=Q4_K
+blk.13.ffn_down_shexp=Q4_K
+blk.13.attn_q=Q3_K
+blk.13.attn_k=Q3_K
+blk.13.attn_v=Q3_K
+blk.13.attn_output=Q3_K
+
+# ==== LAYER 14 ====
+blk.14.ffn_gate_inp=Q8_0
+blk.14.ffn_gate_up_exps=Q3_K
+blk.14.ffn_down_exps=Q3_K
+blk.14.ffn_gate=Q4_K
+blk.14.ffn_up=Q4_K
+blk.14.ffn_down=Q4_K
+blk.14.ffn_gate_shexp=Q4_K
+blk.14.ffn_up_shexp=Q4_K
+blk.14.ffn_down_shexp=Q4_K
+blk.14.attn_q=Q3_K
+blk.14.attn_k=Q3_K
+blk.14.attn_v=Q3_K
+blk.14.attn_output=Q3_K
+
+# ==== LAYER 15 ====
+blk.15.ffn_gate_inp=Q8_0
+blk.15.ffn_gate_up_exps=Q3_K
+blk.15.ffn_down_exps=Q3_K
+blk.15.ffn_gate=Q4_K
+blk.15.ffn_up=Q4_K
+blk.15.ffn_down=Q4_K
+blk.15.ffn_gate_shexp=Q4_K
+blk.15.ffn_up_shexp=Q4_K
+blk.15.ffn_down_shexp=Q4_K
+blk.15.attn_q=Q3_K
+blk.15.attn_k=Q3_K
+blk.15.attn_v=Q3_K
+blk.15.attn_output=Q3_K
+
+# ==== LAYER 16 ====
+blk.16.ffn_gate_inp=Q8_0
+blk.16.ffn_gate_up_exps=Q3_K
+blk.16.ffn_down_exps=Q3_K
+blk.16.ffn_gate=Q4_K
+blk.16.ffn_up=Q4_K
+blk.16.ffn_down=Q4_K
+blk.16.ffn_gate_shexp=Q4_K
+blk.16.ffn_up_shexp=Q4_K
+blk.16.ffn_down_shexp=Q4_K
+blk.16.attn_q=Q3_K
+blk.16.attn_k=Q3_K
+blk.16.attn_v=Q3_K
+blk.16.attn_output=Q3_K
+
+# ==== LAYER 17 ====
+blk.17.ffn_gate_inp=Q8_0
+blk.17.ffn_gate_up_exps=Q3_K
+blk.17.ffn_down_exps=Q3_K
+blk.17.ffn_gate=Q4_K
+blk.17.ffn_up=Q4_K
+blk.17.ffn_down=Q4_K
+blk.17.ffn_gate_shexp=Q4_K
+blk.17.ffn_up_shexp=Q4_K
+blk.17.ffn_down_shexp=Q4_K
+blk.17.attn_q=Q3_K
+blk.17.attn_k=Q3_K
+blk.17.attn_v=Q3_K
+blk.17.attn_output=Q3_K
+
+# ==== LAYER 18 ====
+blk.18.ffn_gate_inp=Q8_0
+blk.18.ffn_gate_up_exps=Q3_K
+blk.18.ffn_down_exps=Q3_K
+blk.18.ffn_gate=Q4_K
+blk.18.ffn_up=Q4_K
+blk.18.ffn_down=Q4_K
+blk.18.ffn_gate_shexp=Q4_K
+blk.18.ffn_up_shexp=Q4_K
+blk.18.ffn_down_shexp=Q4_K
+blk.18.attn_q=Q3_K
+blk.18.attn_k=Q3_K
+blk.18.attn_v=Q3_K
+blk.18.attn_output=Q3_K
+
+# ==== LAYER 19 ====
+blk.19.ffn_gate_inp=Q8_0
+blk.19.ffn_gate_up_exps=Q3_K
+blk.19.ffn_down_exps=Q3_K
+blk.19.ffn_gate=Q4_K
+blk.19.ffn_up=Q4_K
+blk.19.ffn_down=Q4_K
+blk.19.ffn_gate_shexp=Q4_K
+blk.19.ffn_up_shexp=Q4_K
+blk.19.ffn_down_shexp=Q4_K
+blk.19.attn_q=Q3_K
+blk.19.attn_k=Q3_K
+blk.19.attn_v=Q3_K
+blk.19.attn_output=Q3_K
+
+# ==== LAYER 20 ====
+blk.20.ffn_gate_inp=Q8_0
+blk.20.ffn_gate_up_exps=Q3_K
+blk.20.ffn_down_exps=Q3_K
+blk.20.ffn_gate=Q4_K
+blk.20.ffn_up=Q4_K
+blk.20.ffn_down=Q4_K
+blk.20.ffn_gate_shexp=Q4_K
+blk.20.ffn_up_shexp=Q4_K
+blk.20.ffn_down_shexp=Q4_K
+blk.20.attn_q=Q3_K
+blk.20.attn_k=Q3_K
+blk.20.attn_v=Q3_K
+blk.20.attn_output=Q3_K
+
+# ==== LAYER 21 ====
+blk.21.ffn_gate_inp=Q8_0
+blk.21.ffn_gate_up_exps=Q3_K
+blk.21.ffn_down_exps=Q3_K
+blk.21.ffn_gate=Q4_K
+blk.21.ffn_up=Q4_K
+blk.21.ffn_down=Q4_K
+blk.21.ffn_gate_shexp=Q4_K
+blk.21.ffn_up_shexp=Q4_K
+blk.21.ffn_down_shexp=Q4_K
+blk.21.attn_q=Q3_K
+blk.21.attn_k=Q3_K
+blk.21.attn_v=Q3_K
+blk.21.attn_output=Q3_K
+
+# ==== LAYER 22 ====
+blk.22.ffn_gate_inp=Q8_0
+blk.22.ffn_gate_up_exps=Q3_K
+blk.22.ffn_down_exps=Q3_K
+blk.22.ffn_gate=Q4_K
+blk.22.ffn_up=Q4_K
+blk.22.ffn_down=Q4_K
+blk.22.ffn_gate_shexp=Q4_K
+blk.22.ffn_up_shexp=Q4_K
+blk.22.ffn_down_shexp=Q4_K
+blk.22.attn_q=Q3_K
+blk.22.attn_k=Q3_K
+blk.22.attn_v=Q3_K
+blk.22.attn_output=Q3_K
+
+# ==== LAYER 23 ====
+blk.23.ffn_gate_inp=Q8_0
+blk.23.ffn_gate_up_exps=Q3_K
+blk.23.ffn_down_exps=Q3_K
+blk.23.ffn_gate=Q4_K
+blk.23.ffn_up=Q4_K
+blk.23.ffn_down=Q4_K
+blk.23.ffn_gate_shexp=Q4_K
+blk.23.ffn_up_shexp=Q4_K
+blk.23.ffn_down_shexp=Q4_K
+blk.23.attn_q=Q3_K
+blk.23.attn_k=Q3_K
+blk.23.attn_v=Q3_K
+blk.23.attn_output=Q3_K
+
+# ==== LAYER 24 ====
+blk.24.ffn_gate_inp=Q8_0
+blk.24.ffn_gate_up_exps=Q3_K
+blk.24.ffn_down_exps=Q3_K
+blk.24.ffn_gate=Q4_K
+blk.24.ffn_up=Q4_K
+blk.24.ffn_down=Q4_K
+blk.24.ffn_gate_shexp=Q4_K
+blk.24.ffn_up_shexp=Q4_K
+blk.24.ffn_down_shexp=Q4_K
+blk.24.attn_q=Q3_K
+blk.24.attn_k=Q3_K
+blk.24.attn_v=Q3_K
+blk.24.attn_output=Q3_K
+
+# ==== LAYER 25 ====
+blk.25.ffn_gate_inp=Q8_0
+blk.25.ffn_gate_up_exps=Q3_K
+blk.25.ffn_down_exps=Q3_K
+blk.25.ffn_gate=Q5_K
+blk.25.ffn_up=Q5_K
+blk.25.ffn_down=Q5_K
+blk.25.ffn_gate_shexp=Q5_K
+blk.25.ffn_up_shexp=Q5_K
+blk.25.ffn_down_shexp=Q5_K
+blk.25.attn_q=Q3_K
+blk.25.attn_k=Q3_K
+blk.25.attn_v=Q3_K
+blk.25.attn_output=Q3_K
+
+# ==== LAYER 26 ====
+blk.26.ffn_gate_inp=Q8_0
+blk.26.ffn_gate_up_exps=Q3_K
+blk.26.ffn_down_exps=Q3_K
+blk.26.ffn_gate=Q5_K
+blk.26.ffn_up=Q5_K
+blk.26.ffn_down=Q5_K
+blk.26.ffn_gate_shexp=Q5_K
+blk.26.ffn_up_shexp=Q5_K
+blk.26.ffn_down_shexp=Q5_K
+blk.26.attn_q=Q3_K
+blk.26.attn_k=Q3_K
+blk.26.attn_v=Q3_K
+blk.26.attn_output=Q3_K
+
+# ==== LAYER 27 ====
+blk.27.ffn_gate_inp=Q8_0
+blk.27.ffn_gate_up_exps=Q3_K
+blk.27.ffn_down_exps=Q3_K
+blk.27.ffn_gate=Q5_K
+blk.27.ffn_up=Q5_K
+blk.27.ffn_down=Q5_K
+blk.27.ffn_gate_shexp=Q5_K
+blk.27.ffn_up_shexp=Q5_K
+blk.27.ffn_down_shexp=Q5_K
+blk.27.attn_q=Q4_K
+blk.27.attn_k=Q4_K
+blk.27.attn_v=Q4_K
+blk.27.attn_output=Q4_K
+
+# ==== LAYER 28 ====
+blk.28.ffn_gate_inp=Q8_0
+blk.28.ffn_gate_up_exps=Q3_K
+blk.28.ffn_down_exps=Q3_K
+blk.28.ffn_gate=Q5_K
+blk.28.ffn_up=Q5_K
+blk.28.ffn_down=Q5_K
+blk.28.ffn_gate_shexp=Q5_K
+blk.28.ffn_up_shexp=Q5_K
+blk.28.ffn_down_shexp=Q5_K
+blk.28.attn_q=Q4_K
+blk.28.attn_k=Q4_K
+blk.28.attn_v=Q4_K
+blk.28.attn_output=Q4_K
+
+# ==== LAYER 29 (letzter Layer – höchste Präzision) ====
+blk.29.ffn_gate_inp=Q8_0
+blk.29.ffn_gate_up_exps=Q3_K
+blk.29.ffn_down_exps=Q3_K
+blk.29.ffn_gate=Q5_K
+blk.29.ffn_up=Q5_K
+blk.29.ffn_down=Q5_K
+blk.29.ffn_gate_shexp=Q5_K
+blk.29.ffn_up_shexp=Q5_K
+blk.29.ffn_down_shexp=Q5_K
+blk.29.attn_q=Q4_K
+blk.29.attn_k=Q4_K
+blk.29.attn_v=Q4_K
+blk.29.attn_output=Q4_K
+
+# ============================================================
+# HINWEISE:
+# - token_embd und output.weight fallen auf den Base-Typ (Q3_K_M)
+#   → Falls Qualitätsprobleme: llama-quantize unterstützt auch
+#     output.weight=Q6_K als extra Argument (je nach Version)
+# - Norm-Weights (attn_norm, ffn_norm) bleiben immer f32 (automatisch)
+# - Falls "WARNING: N tensor(s) required fallback" erscheint:
+#   → Die betroffenen Tensoren mit gguf-info identifizieren
+#   → Auf Q4_0 oder Q5_0 als Fallback-sicheren Typ setzen
+# ============================================================
