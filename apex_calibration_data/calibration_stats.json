@@ -1,0 +1,30 @@
+{
+  "chat": {
+    "before_dedup": 200,
+    "after_dedup": 200,
+    "tokens": 14628,
+    "samples": 77
+  },
+  "code": {
+    "before_dedup": 151,
+    "after_dedup": 151,
+    "tokens": 11899,
+    "samples": 18
+  },
+  "reasoning": {
+    "before_dedup": 80,
+    "after_dedup": 80,
+    "tokens": 12294,
+    "samples": 60
+  },
+  "tool_call": {
+    "before_dedup": 60,
+    "after_dedup": 60,
+    "tokens": 9811,
+    "samples": 39
+  },
+  "total": {
+    "tokens": 48632,
+    "samples": 194
+  }
+}
