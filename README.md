@@ -1,5 +1,7 @@
 # APEX -- Adaptive Precision for EXpert Models
 
+**EDIT: Expanded to work with other LLMs i found to be woth converting -BW
+
 **Brought to you by the [LocalAI](https://github.com/mudler/LocalAI) team** -- the creators of LocalAI the open-source AI engine that runs any model - LLMs, vision, voice, image, video - on any hardware. No GPU required.
 
 [![Paper](https://img.shields.io/badge/Technical_Report-PDF-blue)](paper/APEX_Technical_Report.pdf)
